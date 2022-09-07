@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cita barberia</title>
-</head>
-<body>
-    
-    <div>
-        <form action="">
-            <label for=""> ¿ Nombre del cliente ? </label>
-            <input type="text" id="" > 
-            <label for=""> elija el corte que desea: </label>
-            <select name="" id="">
-                <option value=""> Barba</option>
-                <option value=""> Corte de cabello </option>
-                <option value=""> Depilacion de cejas</option>
-                <option value=""> barba y corte de cabello</option>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>Cita barberia</title>
+  </head>
+  <body>
+      <h1>Barberia Tuberquia</h1>
+      <form>
+        <div class="row">
+          <div class="six columns">
+            <label for="exampleEmailInput"> Digite Nombre del cliente: </label>
+            <input
+              class="u-full-width"
+              type="text"
+              placeholder="Juan Andres"
+              id="NameInput"
+            />
+          </div>
+          <div class="six columns">
+            <label for="exampleRecipientInput">
+              Elija el corte que desea:
+            </label>
+            <select class="u-full-width">
+              <option value="">Barba</option>
+              <option value="">Corte de cabello</option>
+              <option value="">Depilacion de cejas</option>
+              <option value="">barba y corte de cabello</option>
             </select>
-            <label for=""> Ingresa una hora deseada para el turno: </label>
-            <input type="date">
-        </form>
+          </div>
+        </div>
+        <div>
+          <label for=""> Ingresa una hora deseada para el turno: </label>
+          <input type="date" />
+        </div>
+        <label class="example-send-yourself-copy">
+          <input type="checkbox" />
+          <span class="label-body">Send a copy to yourself</span>
+        </label>
+        <input class="button-primary" type="submit" value="Submit" />
+      </form>
+      <script src="./scripts/script.js"></script>
     </div>
-    
+    <form>
+      <div className="input-field col s12">
+        <input type="text" name="ciudad" id="ciudad" onChange="{getData}" />
+        <label htmlFor="ciudad"> Ciudad: </label>
+      </div>
+      <div className="input-field col s12">
+        <select name="pais" id="pais" onChange="{getData}">
+          <option value="">--selecciones un pais--</option>
+          <option value="US">Estados Unidos</option>
+          <option value="MX">México</option>
+          <option value="AR">Argentina</option>
+          <option value="CO">Colombia</option>
+          <option value="CR">Costa Rica</option>
+          <option value="ES">España</option>
+          <option value="PE">Perú</option>
+        </select>
+        <label htmlFor="pais"> Pais: </label>
+      </div>
+      <div className="input-field col s12">
+        <button
+          type="submit"
+          className="waves-effect waves-light btn-large btn-block yellow accent-4 button"
+        >
+          Consultar
+        </button>
+      </div>
+    </form>
 
-
-    <script src="./script.js"></script>
-</body>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>

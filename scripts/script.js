@@ -48,13 +48,13 @@ function validate (dataUser){
     }
 }
 
-for (i=0; i<1; i++){
+// for (i=0; i<1; i++){
 
-    const dataUser= getValues()
-    const checkData= validate(dataUser)
-    const findUser = userPremiun(checkData)    
+//     const dataUser= getValues()
+//     const checkData= validate(dataUser)
+//     const findUser = userPremiun(checkData)    
 
-}
+// }
 
 
 
