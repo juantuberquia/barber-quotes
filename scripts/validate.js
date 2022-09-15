@@ -6,6 +6,7 @@ class User {
   }
 }
 const persona1 = new User();
+
 let collectionUsers = [];
 
 function validateData(value) {
@@ -37,10 +38,8 @@ let elementSubmit = document
   .getElementById("submit")
   .addEventListener("click", eventClick);
 
+// event agendar cita, crea un div con la informacion suministrada
 function eventClick() {
-  console.log(collectionUsers);
-  collectionUsers.push(persona1);
-
   let summary = document.getElementById("col-summary-quote");
   let containerQuote = document.createElement("div");
 
@@ -56,6 +55,8 @@ function eventClick() {
   containerQuote.appendChild(paragraphName);
   containerQuote.appendChild(paragraphType);
   containerQuote.appendChild(paragraphTime);
-
   summary.appendChild(containerQuote);
+
+  collectionUsers.push(persona1);
+  console.log(collectionUsers);
 }
