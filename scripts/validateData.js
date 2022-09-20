@@ -9,7 +9,7 @@ class User {
 const persona1 = new User();
 let collectionUsers = [];
 
-// valida nombre del cliente
+// valida nombre del cliente ingresado
 function validateData(value) {
   if (value.trim() === "") {
     alert(" favor ingresar datos correctos");
@@ -27,7 +27,7 @@ function validateOption(option) {
   }
 }
 
-// valida hora seleccionada
+// valida hora seleccionada de la cita
 function validateTime(time) {
   if (time.trim() === "") {
     alert(" favor ingresar datos correctos");
@@ -42,6 +42,12 @@ elementSubmit.addEventListener("click", createQuoteSummary);
 
 //  crea un resumen (div) con la informacion suministrada de la cita
 function createQuoteSummary() {
+  // guarda informacion del usuario en el array
+  collectionUsers.push({ ...persona1 });
+
+  // guarda informacion usuario, en el local storage
+  saveStorage(collectionUsers);
+
   let summary = document.getElementById("col-summary-quote");
   let containerQuote = document.createElement("div");
 
@@ -58,6 +64,4 @@ function createQuoteSummary() {
   containerQuote.appendChild(paragraphType);
   containerQuote.appendChild(paragraphTime);
   summary.appendChild(containerQuote);
-
-  collectionUsers.push({ ...persona1 });
 }
