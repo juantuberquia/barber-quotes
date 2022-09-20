@@ -5,10 +5,11 @@ class User {
     this.fecha = fecha;
   }
 }
-const persona1 = new User();
 
+const persona1 = new User();
 let collectionUsers = [];
 
+// valida nombre del cliente
 function validateData(value) {
   if (value.trim() === "") {
     alert(" favor ingresar datos correctos");
@@ -17,6 +18,7 @@ function validateData(value) {
   }
 }
 
+// valida opcion seleccionada del tipo de cita
 function validateOption(option) {
   if (option.trim() === "") {
     alert(" favor ingresar datos correctos");
@@ -25,6 +27,7 @@ function validateOption(option) {
   }
 }
 
+// valida hora seleccionada
 function validateTime(time) {
   if (time.trim() === "") {
     alert(" favor ingresar datos correctos");
@@ -33,13 +36,12 @@ function validateTime(time) {
   }
 }
 
-// event submit
-let elementSubmit = document
-  .getElementById("submit")
-  .addEventListener("click", eventClick);
+// evento agendar cita
+let elementSubmit = document.getElementById("submit");
+elementSubmit.addEventListener("click", createQuoteSummary);
 
-// event agendar cita, crea un div con la informacion suministrada
-function eventClick() {
+//  crea un resumen (div) con la informacion suministrada de la cita
+function createQuoteSummary() {
   let summary = document.getElementById("col-summary-quote");
   let containerQuote = document.createElement("div");
 
@@ -57,6 +59,5 @@ function eventClick() {
   containerQuote.appendChild(paragraphTime);
   summary.appendChild(containerQuote);
 
-  collectionUsers.push(persona1);
-  console.log(collectionUsers);
+  collectionUsers.push({ ...persona1 });
 }
