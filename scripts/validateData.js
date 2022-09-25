@@ -43,29 +43,41 @@ elementSubmit.addEventListener("click", createQuoteSummary);
 
 // crea un resumen (div) con la informacion suministrada de la cita
 function createQuoteSummary() {
-  availableHour(persona1.fecha);
+  let valueReturn = availableHour(persona1.fecha);
+  console.log(valueReturn);
 
-  // guarda informacion del usuario en el array
-  collectionUsers.push({ ...persona1 });
-  // guarda informacion de la cita, en el local storage
-  saveStorage(collectionUsers);
+  switch (valueReturn) {
+    case false:
+      alert(`la hora indicada, ya esta agendada, favor ingresar otra hora`);
+      //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+      break;
+    case true:
+      // guarda informacion del usuario en el array
+      collectionUsers.push({ ...persona1 });
+      // guarda informacion de la cita, en el local storage
+      saveStorage(collectionUsers);
 
-  let summary = document.getElementById("col-summary-quote");
-  let containerQuote = document.createElement("div");
+      let summary = document.getElementById("col-summary-quote");
+      let containerQuote = document.createElement("div");
 
-  let paragraphName = document.createElement("p");
-  paragraphName.innerText = persona1.nombre;
+      let paragraphName = document.createElement("p");
+      paragraphName.innerText = persona1.nombre;
 
-  let paragraphType = document.createElement("p");
-  paragraphType.innerText = persona1.tipoCorte;
+      let paragraphType = document.createElement("p");
+      paragraphType.innerText = persona1.tipoCorte;
 
-  let paragraphTime = document.createElement("p");
-  paragraphTime.innerText = persona1.fecha;
+      let paragraphTime = document.createElement("p");
+      paragraphTime.innerText = persona1.fecha;
 
-  containerQuote.appendChild(paragraphName);
-  containerQuote.appendChild(paragraphType);
-  containerQuote.appendChild(paragraphTime);
-  summary.appendChild(containerQuote);
+      containerQuote.appendChild(paragraphName);
+      containerQuote.appendChild(paragraphType);
+      containerQuote.appendChild(paragraphTime);
+      summary.appendChild(containerQuote);
+      break;
+
+    default:
+      console.log("case default");
+  }
 }
 
 // valida disponibilidad horaria
@@ -74,28 +86,9 @@ const availableHour = (fecha) => {
 
   if (collectionHourQuote.length === 0) {
     collectionHourQuote.push(fecha);
+    return true;
   } else {
-    try {
-      foundDate = collectionHourQuote.find((date) => date === fecha);
-
-      if (foundDate) throw new Error(" hora repetida ");
-      {
-        alert("Hora seleccionada no esta disponible");
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
+    foundDate = collectionHourQuote.find((date) => date === fecha);
+    return false;
   }
-
-  //   try {
-  //     myArray.forEach((value) => {
-  //        if (value > maxValue) throw new Error("Max limit reached");
-
-  //        console.log('Current value is ', value);
-  //     });
-  //  } catch(error) {
-  //     console.error("error ", error);
-  //  }
-
-  console.log(collectionHourQuote);
 };
