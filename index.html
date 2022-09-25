@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-    <title>Cita barberia</title>
-  </head>
-  <body>
-      <h1>Barberia Tuberquia</h1>
-        <div class="container ">
-          <div class="row">
-            <label for="exampleEmailInput"> Digite Nombre del cliente: </label>
-            <input
-              class="u-full-width"
-              type="text"
-              placeholder="Juan "
-              id="NameInput"
-            />
-          </div>
-          <div class="">
-            <label for="exampleRecipientInput">
-              Elija el corte que desea:
-            </label>
-            <div> 
-              <select class="input-field col 14"  id="selected">
-                <option value="fff" >seleccione una opcion</option>
-                <option value="Barba">Barba</option>
-                <option value="Corte de cabello">Corte de cabello</option>
-                <option value="Depilacion de cejas">Depilacion de cejas</option>
-                <option value="barba y corte de cabello">barba y corte de cabello</option>
-            </select>
-            </div>
-          </div>
-        </div>
-        <div>
-          <label for=""> Ingresa una hora deseada para el turno: </label>
-          <input type="time" id="time" />
-        </div>
-        <input type="submit" id="submit" value="Agendar Cita" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./public/style.css">
+  <title>Cita barberia</title>
+</head>
+
+<body>
+  <h1>Barberia Tuberquia</h1>
+  <div class="container ">
+    <div class="row mb-3">
+      <label for="exampleEmailInput"> Digite Nombre del cliente: </label>
+      <input class="u-full-width form-control" type="text" placeholder="Juan " id="NameInput" required />
     </div>
-    <div id="col-summary-quote"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/captureData.js"></script>
-    <script src="./scripts/validateData.js"></script>
-    <script src="./scripts/saveStorage.js"></script>
-  </body>
+    <div>
+      <label for="exampleRecipientInput">
+        Elija el corte que desea:
+      </label>
+      <div class="">
+        <select class="form-select form-select-lg mb-3" id="selected" required>
+          <option selected="true" disabled="disabled">seleccione una opcion</option>
+          <option value="Barba">Barba</option>
+          <option value="Corte de cabello">Corte de cabello</option>
+          <option value="Depilacion de cejas">Depilacion de cejas</option>
+          <option value="barba y corte de cabello">barba y corte de cabello</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <label for=""> Ingresa una hora deseada para el turno: </label>
+    <input type="time" id="time" class="form-select" required />
+  </div>
+  <input type="submit" id="submit" value="Agendar Cita" class="btn btn-primary" />
+  </div>
+  <div id="col-summary-quote"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./scripts/captureData.js"></script>
+  <script src="./scripts/validateData.js"></script>
+  <script src="./scripts/saveStorage.js"></script>
+</body>
+
 </html>

@@ -8,6 +8,7 @@ class User {
 
 const persona1 = new User();
 let collectionUsers = [];
+let collectionHourQuote = [];
 
 // valida nombre del cliente ingresado
 function validateData(value) {
@@ -40,12 +41,13 @@ function validateTime(time) {
 let elementSubmit = document.getElementById("submit");
 elementSubmit.addEventListener("click", createQuoteSummary);
 
-//  crea un resumen (div) con la informacion suministrada de la cita
+// crea un resumen (div) con la informacion suministrada de la cita
 function createQuoteSummary() {
+  availableHour(persona1.fecha);
+
   // guarda informacion del usuario en el array
   collectionUsers.push({ ...persona1 });
-
-  // guarda informacion usuario, en el local storage
+  // guarda informacion de la cita, en el local storage
   saveStorage(collectionUsers);
 
   let summary = document.getElementById("col-summary-quote");
@@ -65,3 +67,35 @@ function createQuoteSummary() {
   containerQuote.appendChild(paragraphTime);
   summary.appendChild(containerQuote);
 }
+
+// valida disponibilidad horaria
+const availableHour = (fecha) => {
+  let foundDate;
+
+  if (collectionHourQuote.length === 0) {
+    collectionHourQuote.push(fecha);
+  } else {
+    try {
+      foundDate = collectionHourQuote.find((date) => date === fecha);
+
+      if (foundDate) throw new Error(" hora repetida ");
+      {
+        alert("Hora seleccionada no esta disponible");
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+
+  //   try {
+  //     myArray.forEach((value) => {
+  //        if (value > maxValue) throw new Error("Max limit reached");
+
+  //        console.log('Current value is ', value);
+  //     });
+  //  } catch(error) {
+  //     console.error("error ", error);
+  //  }
+
+  console.log(collectionHourQuote);
+};
