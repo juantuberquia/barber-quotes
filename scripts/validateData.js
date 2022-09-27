@@ -57,6 +57,7 @@ function createQuoteSummary() {
     collectionUsers.push({ ...persona1 });
     // guarda informacion de la cita, en el local storage
     saveStorage(collectionUsers);
+
     let paragraphName = document.createElement("p");
     paragraphName.innerText = persona1.nombre;
 
@@ -65,8 +66,6 @@ function createQuoteSummary() {
 
     let paragraphTime = document.createElement("p");
     paragraphTime.innerText = persona1.fecha;
-
-    console.log(persona1.fecha);
 
     containerQuote.appendChild(paragraphName);
     containerQuote.appendChild(paragraphType);
