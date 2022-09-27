@@ -43,40 +43,35 @@ elementSubmit.addEventListener("click", createQuoteSummary);
 
 // crea un resumen (div) con la informacion suministrada de la cita
 function createQuoteSummary() {
-  let valueReturn = availableHour(persona1.fecha);
-  console.log(valueReturn);
+  let summary = document.getElementById("col-summary-quote");
+  let containerQuote = document.createElement("div");
 
-  switch (valueReturn) {
-    case false:
-      alert(`la hora indicada, ya esta agendada, favor ingresar otra hora`);
-      //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
-      break;
-    case true:
-      // guarda informacion del usuario en el array
-      collectionUsers.push({ ...persona1 });
-      // guarda informacion de la cita, en el local storage
-      saveStorage(collectionUsers);
+  if (
+    persona1.fecha === undefined ||
+    persona1.nombre === undefined ||
+    persona1.tipoCorte === undefined
+  ) {
+    alert("ingresar datos");
+  } else {
+    // guarda informacion del usuario en el array
+    collectionUsers.push({ ...persona1 });
+    // guarda informacion de la cita, en el local storage
+    saveStorage(collectionUsers);
+    let paragraphName = document.createElement("p");
+    paragraphName.innerText = persona1.nombre;
 
-      let summary = document.getElementById("col-summary-quote");
-      let containerQuote = document.createElement("div");
+    let paragraphType = document.createElement("p");
+    paragraphType.innerText = persona1.tipoCorte;
 
-      let paragraphName = document.createElement("p");
-      paragraphName.innerText = persona1.nombre;
+    let paragraphTime = document.createElement("p");
+    paragraphTime.innerText = persona1.fecha;
 
-      let paragraphType = document.createElement("p");
-      paragraphType.innerText = persona1.tipoCorte;
+    console.log(persona1.fecha);
 
-      let paragraphTime = document.createElement("p");
-      paragraphTime.innerText = persona1.fecha;
-
-      containerQuote.appendChild(paragraphName);
-      containerQuote.appendChild(paragraphType);
-      containerQuote.appendChild(paragraphTime);
-      summary.appendChild(containerQuote);
-      break;
-
-    default:
-      console.log("case default");
+    containerQuote.appendChild(paragraphName);
+    containerQuote.appendChild(paragraphType);
+    containerQuote.appendChild(paragraphTime);
+    summary.appendChild(containerQuote);
   }
 }
 
