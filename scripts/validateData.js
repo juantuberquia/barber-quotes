@@ -12,6 +12,7 @@ let collectionHourQuote = [];
 
 // valida nombre del cliente ingresado
 function validateData(value) {
+  console.log(value);
   if (value.trim() === "") {
     alert(" favor ingresar datos correctos");
   } else {
@@ -21,6 +22,7 @@ function validateData(value) {
 
 // valida opcion seleccionada del tipo de cita
 function validateOption(option) {
+  console.log(option);
   if (option.trim() === "") {
     alert(" favor ingresar datos correctos");
   } else {
@@ -30,6 +32,7 @@ function validateOption(option) {
 
 // valida hora seleccionada de la cita
 function validateTime(time) {
+  console.log(time);
   if (time.trim() === "") {
     alert(" favor ingresar datos correctos");
   } else {
@@ -39,24 +42,39 @@ function validateTime(time) {
 
 // evento agendar cita
 let elementSubmit = document.getElementById("submit");
-elementSubmit.addEventListener("click", createQuoteSummary);
+elementSubmit.addEventListener("click", validateAvaibleHour);
+let valueReturn;
+
+function validateAvaibleHour() {
+  valueReturn = availableHour(persona1.fecha);
+  createQuoteSummary(valueReturn);
+}
+
+// encuentra hora repetida
+const availableHour = (fecha) => {
+  let foundDate;
+
+  if (collectionHourQuote.length === 0) {
+    collectionHourQuote.push(fecha);
+    return true;
+  } else {
+    foundDate = collectionHourQuote.find((date) => date === fecha);
+    return false;
+  }
+};
 
 // crea un resumen (div) con la informacion suministrada de la cita
 function createQuoteSummary() {
-  let valueReturn = availableHour(persona1.fecha);
-  console.log(valueReturn);
-
   switch (valueReturn) {
     case false:
       alert(`la hora indicada, ya esta agendada, favor ingresar otra hora`);
-      //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
       break;
+
     case true:
       // guarda informacion del usuario en el array
       collectionUsers.push({ ...persona1 });
       // guarda informacion de la cita, en el local storage
       saveStorage(collectionUsers);
-
       let summary = document.getElementById("col-summary-quote");
       let containerQuote = document.createElement("div");
 
@@ -73,22 +91,10 @@ function createQuoteSummary() {
       containerQuote.appendChild(paragraphType);
       containerQuote.appendChild(paragraphTime);
       summary.appendChild(containerQuote);
+
       break;
 
     default:
       console.log("case default");
   }
 }
-
-// valida disponibilidad horaria
-const availableHour = (fecha) => {
-  let foundDate;
-
-  if (collectionHourQuote.length === 0) {
-    collectionHourQuote.push(fecha);
-    return true;
-  } else {
-    foundDate = collectionHourQuote.find((date) => date === fecha);
-    return false;
-  }
-};
