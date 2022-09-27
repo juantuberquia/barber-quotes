@@ -12,29 +12,23 @@ let collectionHourQuote = [];
 
 // valida nombre del cliente ingresado
 function validateData(value) {
-  if (value.trim() === "") {
-    alert(" favor ingresar datos correctos");
-  } else {
-    persona1.nombre = value.trim();
-  }
+  value.trim() === ""
+    ? alert(" favor ingresar datos correctos")
+    : (persona1.nombre = value.trim());
 }
 
 // valida opcion seleccionada del tipo de cita
 function validateOption(option) {
-  if (option.trim() === "") {
-    alert(" favor ingresar datos correctos");
-  } else {
-    persona1.tipoCorte = option.trim();
-  }
+  option.trim() === ""
+    ? alert(" favor ingresar datos correctos")
+    : (persona1.tipoCorte = option.trim());
 }
 
 // valida hora seleccionada de la cita
 function validateTime(time) {
-  if (time.trim() === "") {
-    alert(" favor ingresar datos correctos");
-  } else {
-    persona1.fecha = time.trim();
-  }
+  time.trim() === ""
+    ? alert(" favor ingresar datos correctos")
+    : (persona1.fecha = time.trim());
 }
 
 // evento agendar cita
@@ -46,11 +40,9 @@ function createQuoteSummary() {
   let summary = document.getElementById("col-summary-quote");
   let containerQuote = document.createElement("div");
 
-  if (
-    persona1.fecha === undefined ||
-    persona1.nombre === undefined ||
-    persona1.tipoCorte === undefined
-  ) {
+  let { nombre, tipoCorte, fecha } = persona1;
+
+  if (fecha === undefined || nombre === undefined || tipoCorte === undefined) {
     alert("ingresar datos");
   } else {
     // guarda informacion del usuario en el array
@@ -59,13 +51,13 @@ function createQuoteSummary() {
     saveStorage(collectionUsers);
 
     let paragraphName = document.createElement("p");
-    paragraphName.innerText = persona1.nombre;
+    paragraphName.innerText = nombre;
 
     let paragraphType = document.createElement("p");
-    paragraphType.innerText = persona1.tipoCorte;
+    paragraphType.innerText = tipoCorte;
 
     let paragraphTime = document.createElement("p");
-    paragraphTime.innerText = persona1.fecha;
+    paragraphTime.innerText = fecha;
 
     containerQuote.appendChild(paragraphName);
     containerQuote.appendChild(paragraphType);
