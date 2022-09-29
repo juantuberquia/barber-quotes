@@ -1,5 +1,6 @@
 window.addEventListener("load", getDataStorage());
 
+// obtiene datos del local storage, e imprime dichos datos
 function getDataStorage() {
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
