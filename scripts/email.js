@@ -1,15 +1,17 @@
-// let handleSubmit = document.getElementById("submit");
-// handleSubmit.addEventListener("click", sendEmail);
-
 let sendEmail = () => {
-  console.log("entra send email");
   let params = {
-    email_id: document.getElementById("email_id"),
+    from_name: document.getElementById("NameInput").value,
+    email_id: document.getElementById("email_id").value,
+    time: document.getElementById("time").value,
   };
 
-  emailjs
-    .send("service_nsxmoxa", "template_i4gf8i7", params)
-    .then(function (res) {
+  emailjs.send("service_nsxmoxa", "template_i4gf8i7", params).then(
+    function (res) {
       alert(res.status);
-    });
+    },
+    (err) => {
+      btn.value = "Send Email";
+      alert(JSON.stringify(err));
+    }
+  );
 };

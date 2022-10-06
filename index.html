@@ -12,22 +12,22 @@
 </head>
 
 <body>
-  <h1>Barberia Tuberquia</h1>
+  <h1 class="title-barber">Barberia Tuberquia</h1>
   <div class="container ">
-    <div class="row mb-3">
-      <label for="exampleEmailInput"> Digite Nombre del cliente: </label>
+    <div class=" mb-3">
+      <label for="exampleEmailInput" class="label-inputs"> Digite Nombre del cliente: </label>
       <input class="u-full-width form-control" type="text" placeholder="Juan " id="NameInput" required />
     </div>
-    <div class="row mb-3">
-      <label for=""> Digite su correo: </label>
+    <div class=" mb-3">
+      <label for="" class="label-inputs"> Digite su correo: </label>
       <input type="email" name="" id="email_id" placeholder="juan@gmail.com" class="u-full-width form-control" required>
     </div>
-    <div>
-      <label for="exampleRecipientInput">
+    <div class=" mb-3">
+      <label for="exampleRecipientInput" class="label-inputs">
         Elija el corte que desea:
       </label>
       <div class="">
-        <select class="form-select form-select-lg mb-3" id="selected" required>
+        <select class="form-select form-select-lg  mb-3 u-full-width" id="selected" required>
           <option selected="true" disabled="disabled">seleccione una opcion</option>
           <option value="Barba">Barba</option>
           <option value="Corte de cabello">Corte de cabello</option>
@@ -36,16 +36,16 @@
         </select>
       </div>
     </div>
+    <div class="mb-3">
+      <label for="" class="label-inputs"> Ingresa una hora deseada para el turno: </label>
+      <input type="time" id="time" class="form-select form-select-lg " required />
+    </div>
   </div>
-  <div class="">
-    <label for=""> Ingresa una hora deseada para el turno: </label>
-    <input type="time" id="time" class="form-select" required />
+  <div class="content-button-submit">
+    <input type="submit" id="submit" value="Agendar Cita" class="btn btn-primary" />
   </div>
-  <input type="submit" id="submit" value="Agendar Cita" class="btn btn-primary" />
-  </div>
-  <div id="col-summary-quote"></div>
-  <div id="myMap" class="content-map"></div>
 
+  <div id="col-summary-quote"></div>
 
   <!-- library sweet alert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -56,12 +56,12 @@
   <script type="text/javascript">
     emailjs.init('wpNiI_Q7cacfFO8ft')
   </script>
-  <!--  -->
+  <!--scripts-->
   <script src="./scripts/captureData.js"></script>
   <script src="./scripts/validateData.js"></script>
   <script src="./scripts/saveStorage.js"></script>
   <script src="./scripts/getDataStorage.js"></script>
-  <script src="./scripts/map.js"></script>
+  <script src="./scripts/email.js"></script>
 </body>
 
 </html>
