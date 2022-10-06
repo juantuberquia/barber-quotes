@@ -52,6 +52,7 @@ function createQuoteSummary() {
   // valida campos del formulario
   let fieldForm = validateFieldsForm();
   fieldForm ? showDataQuote() : null;
+  sendEmail();
 }
 
 function validateFieldsForm() {
@@ -72,7 +73,6 @@ function showDataQuote() {
   let summary = document.getElementById("col-summary-quote");
   let containerQuote = document.createElement("div");
 
-  console.log("entra dos");
   let { nombre, tipoCorte, fecha } = persona1;
   // guarda informacion del usuario en el array
   collectionUsers.push({ ...persona1 });
@@ -100,6 +100,24 @@ function showDataQuote() {
     "success"
   );
 }
+
+let sendEmail = () => {
+  let params = {
+    from_name: document.getElementById("NameInput").value,
+    email_id: document.getElementById("email_id").value,
+    time: document.getElementById("time").value,
+  };
+
+  emailjs.send("service_nsxmoxa", "template_i4gf8i7", params).then(
+    function (res) {
+      alert(res.status);
+    },
+    (err) => {
+      btn.value = "Send Email";
+      alert(JSON.stringify(err));
+    }
+  );
+};
 
 // valida disponibilidad horaria
 // const availableHour = (fecha) => {

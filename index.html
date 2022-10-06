@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="./public/style.css">
   <title>Cita barberia</title>
 </head>
@@ -16,6 +17,10 @@
     <div class="row mb-3">
       <label for="exampleEmailInput"> Digite Nombre del cliente: </label>
       <input class="u-full-width form-control" type="text" placeholder="Juan " id="NameInput" required />
+    </div>
+    <div class="row mb-3">
+      <label for=""> Digite su correo: </label>
+      <input type="email" name="" id="email_id" placeholder="juan@gmail.com" class="u-full-width form-control" required>
     </div>
     <div>
       <label for="exampleRecipientInput">
@@ -39,12 +44,24 @@
   <input type="submit" id="submit" value="Agendar Cita" class="btn btn-primary" />
   </div>
   <div id="col-summary-quote"></div>
+  <div id="myMap" class="content-map"></div>
+
+
+  <!-- library sweet alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Email js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('wpNiI_Q7cacfFO8ft')
+  </script>
+  <!--  -->
   <script src="./scripts/captureData.js"></script>
   <script src="./scripts/validateData.js"></script>
   <script src="./scripts/saveStorage.js"></script>
   <script src="./scripts/getDataStorage.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./scripts/map.js"></script>
 </body>
 
 </html>
