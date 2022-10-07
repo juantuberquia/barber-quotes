@@ -7,11 +7,11 @@ let sendEmail = () => {
 
   emailjs.send("service_nsxmoxa", "template_i4gf8i7", params).then(
     function (res) {
-      alert(res.status);
+      console.log(res.status);
     },
     (err) => {
       btn.value = "Send Email";
-      alert(JSON.stringify(err));
+      console.log(JSON.stringify(err));
     }
   );
 };

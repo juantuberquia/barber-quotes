@@ -90,7 +90,6 @@ label.radio input:checked+span {
 
 .content-button-submit{
   text-align: right;
-  margin-right: 12px;
 }
 
 .label-inputs{
@@ -130,4 +129,32 @@ label.radio input:checked+span {
 .subTitleImage{
   text-align: center;
   margin: 20px 0 20px 0;
+}
+
+.content-summary-quote{
+  font-size: 19px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 640px) {
+  .content-images-barber{
+    display: block
+  }
+  .content-card-summary{
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    width: 55%;
+  }
+  .content-images-barber{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .content-card-summary{
+    width: 53%;
+  }
 }

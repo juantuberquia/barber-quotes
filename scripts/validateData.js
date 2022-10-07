@@ -52,8 +52,6 @@ function createQuoteSummary() {
   // valida campos del formulario
   let fieldForm = validateFieldsForm();
   fieldForm ? showDataQuote() : null;
-  // carga imagenes alusivas a barberia
-  //  showImagesBarber()
   // envia email al usuario
   sendEmail();
 }
@@ -83,6 +81,9 @@ function showDataQuote() {
   saveStorage(collectionUsers);
 
   // crea div con los datos de la cita
+  let titleSummart = document.createElement("h2");
+  titleSummart.innerText = "Resumen de cita";
+
   let paragraphName = document.createElement("p");
   paragraphName.innerText = nombre;
 
@@ -92,10 +93,13 @@ function showDataQuote() {
   let paragraphTime = document.createElement("p");
   paragraphTime.innerText = fecha;
 
+  containerQuote.appendChild(titleSummart);
   containerQuote.appendChild(paragraphName);
   containerQuote.appendChild(paragraphType);
   containerQuote.appendChild(paragraphTime);
+
   summary.appendChild(containerQuote);
+
   containerQuote.className = "content-card-summary";
 
   Swal.fire(
