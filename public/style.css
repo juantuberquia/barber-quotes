@@ -98,6 +98,36 @@ label.radio input:checked+span {
 
 }
 
-.card{
-  border: 1px solid black;
+
+.content-card-summary{
+  border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-top: 25px;
+    -webkit-box-shadow: 1px 1px 22px -6px #000000;
+    box-shadow: 1px 1px 22px -6px #000000;
+    background-color: #dfeaf5;
+}
+
+.content-images-barber{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-barber{
+  
+  margin-bottom: 10px;
+  margin-right: 6px;
+  border-radius: 10px;
+}
+
+.subTitleImage{
+  text-align: center;
+  margin: 20px 0 20px 0;
 }

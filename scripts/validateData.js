@@ -53,7 +53,7 @@ function createQuoteSummary() {
   let fieldForm = validateFieldsForm();
   fieldForm ? showDataQuote() : null;
   // carga imagenes alusivas a barberia
-  showImagesBarber();
+  //  showImagesBarber()
   // envia email al usuario
   sendEmail();
 }
@@ -96,8 +96,7 @@ function showDataQuote() {
   containerQuote.appendChild(paragraphType);
   containerQuote.appendChild(paragraphTime);
   summary.appendChild(containerQuote);
-
-  containerQuote.classList.add("card");
+  containerQuote.className = "content-card-summary";
 
   Swal.fire(
     "Enhorabuena !",
