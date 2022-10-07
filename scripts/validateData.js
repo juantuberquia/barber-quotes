@@ -52,6 +52,9 @@ function createQuoteSummary() {
   // valida campos del formulario
   let fieldForm = validateFieldsForm();
   fieldForm ? showDataQuote() : null;
+  // carga imagenes alusivas a barberia
+  showImagesBarber();
+  // envia email al usuario
   sendEmail();
 }
 
